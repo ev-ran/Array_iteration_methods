@@ -30,7 +30,13 @@ function printKata(kataNumber, object) {
 let greenEyes1 = users
     .filter(user => user.eyeColor === 'green');
 
-printKata(0, greenEyes1);
+let nice_representation = []
+greenEyes1.map(user => nice_representation.push(user.name + " has " + user.eyeColor + " eyes"));
+
+
+
+// printKata(0, greenEyes1);
+printKata(0, nice_representation);
 
 
 //==========================
@@ -38,14 +44,22 @@ printKata(0, greenEyes1);
 let activeUsers = users
     .filter(user => user.isActive === true);
 
-printKata(1, activeUsers);
+let activeUsers_nice_representation = [];
+
+activeUsers.map(user => activeUsers_nice_representation.push(user.name + "  is active now in company " + user.company + "."));
+printKata(1, activeUsers_nice_representation);
 
 
 //==========================
 //Kata 2 Map over the users array to show only the email addresses of the users.
 
-let email_address = users.map(user => user.email);
-printKata(2, email_address);
+// let email_address = users.map(user => user.email);
+
+let email_address_nice_representation = [];
+
+users.map(user => email_address_nice_representation.push(user.name + "'s email is : " + user.email + "."));
+
+printKata(2, email_address_nice_representation);
 
 
 //==========================
@@ -62,7 +76,17 @@ printKata(3, isOvation);
 // Kata 4 Find the first user in the array over the age of 38.
 
 let user_38 = users.find(user => user.age === 38);
-printKata(4, user_38);
+
+let user_38_nice_representation = [];
+
+let str = user_38.name + " is the first user in the list with the age over 38.";
+
+user_38_nice_representation.push(str);
+
+
+// user_38.map(user => user_38_nice_representation.push(user.name + " is the first user in the list with the age over 38."));
+
+printKata(4, user_38_nice_representation);
 
 
 //==========================
@@ -84,9 +108,13 @@ printKata(5, user_active_over_38);
 
 let balance_ZENCO = users
     .filter(user => user.company === 'ZENCO')
-    .map(user => user.balance);
+    // .map(user => user.balance);
 
-printKata(6, balance_ZENCO);
+    let balance_ZENCO_nice_representation = [];
+
+    balance_ZENCO.map(user => balance_ZENCO_nice_representation.push("Balance of " + user.name + " who is working in company " + user.company + " is: " + user.balance + ".") )
+
+printKata(6, balance_ZENCO_nice_representation);
 
 
 //==========================
@@ -94,7 +122,10 @@ printKata(6, balance_ZENCO);
 
 let age_fuguat = users
     .filter(user => user.tags.includes('fugiat'))
-    .map(user => user.age);
+    // .map(user => user.age);
 
-    
-printKata(7, age_fuguat);
+    let age_fuguat_nice_representation = [];
+
+    age_fuguat.map(user => age_fuguat_nice_representation.push(user.name + ", which has the tag 'fugiat', is " + user.age + " years old."));
+
+printKata(7, age_fuguat_nice_representation);
